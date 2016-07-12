@@ -5,6 +5,51 @@ on early-init
     symlink /mnt/sdcard /sdcard
 
 on boot
+# basic network init
+    ifup lo
+    ifup eth0
+    hostname tiny210
+    domainname local
+
+# set RLIMIT_NICE to allow priorities from 19 to -20
+    setrlimit 13 40 40
+
+# NEED CHECK
+# Memory management.  Basic kernel parameters, and allow the high
+# level system server to be able to adjust the kernel OOM driver
+# paramters to match how it is managing things.
+    write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+
+#devices premissions
+    chmod 0666 /dev/s3c2410_serial0
+    chmod 0666 /dev/s3c2410_serial1
+    chmod 0666 /dev/s3c2410_serial2
+    chmod 0666 /dev/s3c2410_serial3
+    chmod 0666 /dev/leds
+    chmod 0666 /dev/pwm
+    chmod 0666 /dev/adc
+    chmod 0666 /dev/i2c-0
+    chmod 0666 /dev/i2c-1
+    chmod 0666 /dev/graphics/fb0
+    chmod 0666 /dev/graphics/fb1
+    chmod 0666 /dev/graphics/fb2
+    chmod 0666 /dev/graphics/fb3
+    chmod 0666 /dev/graphics/fb4
+    chmod 0666 /dev/s3c-mem
+    chmod 0666 /dev/video0
+    chmod 0666 /dev/video1
+    chmod 0666 /dev/video2
+    chmod 0666 /dev/video3
+    chmod 0666 /dev/video14
+    chmod 0666 /dev/video21
+    chmod 0666 /dev/video22
+
+
     trigger post-fs-data
 
 service pvrsrvinit /system/vendor/bin/pvrsrvinit
