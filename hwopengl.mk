@@ -12,3 +12,6 @@ PRODUCT_COPY_FILES := \
 	device/samsung/tiny210/vendor/lib/hw/gralloc.mini210.so:system/vendor/lib/hw/gralloc.mini210.so \
 	device/samsung/tiny210/vendor/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
 	device/samsung/tiny210/vendor/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit
+
+PRODUCT_PACKAGES += hwcomposer.s5pc110\
+		    libhwc

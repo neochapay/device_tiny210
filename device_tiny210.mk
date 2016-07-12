@@ -30,7 +30,8 @@ PRODUCT_PACKAGES += \
         audio.primary.mini210 \
         tinyplay \
         tinycap \
-        tinymix
+        tinymix \
+	libfimc
 
 #TARGET_USERIMAGES_USE_EXT4 := true
 
