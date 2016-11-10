@@ -21,7 +21,6 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 BOARD_EGL_CFG := device/samsung/tiny210/egl.cfg
 
-
 BOARD_USES_HGL := true
 BOARD_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true

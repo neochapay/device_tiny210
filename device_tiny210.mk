@@ -3,7 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/tiny210/tiny210-vendor.mk)
+$(call inherit-product-if-exists, device/samsung/tiny210/tiny210-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/tiny210/overlay
 
@@ -34,5 +34,3 @@ PRODUCT_PACKAGES += \
 	libfimc
 
 #TARGET_USERIMAGES_USE_EXT4 := true
-
-$(call inherit-product, device/samsung/tiny210/hwopengl.mk)
